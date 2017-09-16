@@ -40,16 +40,31 @@ public class SearchResultsAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int pos, View view, ViewGroup viewGroup) {
+    public View getView(int pos, View convertView, ViewGroup viewGroup) {
 
-        View rowView = layoutInflater.inflate(R.layout.row_item, viewGroup, false);
-        TextView tvResult = rowView.findViewById(R.id.tvSearchResult);
-        String searchResult = results.get(pos);
-        tvResult.setText(searchResult + " " + pos);
-        return rowView;
+        ViewHolder holder;
+
+        if (convertView == null) {
+            holder = new ViewHolder();
+            convertView = layoutInflater.inflate(R.layout.row_item, viewGroup, false);
+            convertView.setTag(holder);
+            holder.tvResult = convertView.findViewById(R.id.tvSearchResult);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
+        }
+
+        String result = results.get(pos);
+        holder.tvResult.setText(result + " " + pos);
+
+        return convertView;
     }
 
     public void setSearchResults(List<String> searchResults) {
         results = searchResults;
+    }
+
+    public class ViewHolder {
+
+        TextView tvResult;
     }
 }
