@@ -4,14 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
     tools:context="mobileschool.tables.MainActivity">
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
+        android:padding="16dp"
         android:weightSum="3">
 
         <EditText
@@ -32,13 +32,9 @@
     </LinearLayout>
 
 
-    <TextView
-        android:id="@+id/tvResult"
-        style="@style/Base.TextAppearance.AppCompat.Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:textSize="24sp"
-        tools:text="Result" />
+    <ListView
+        android:id="@+id/lvSearchResults"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>
