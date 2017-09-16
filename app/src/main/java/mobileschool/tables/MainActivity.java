@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
             String text = etSearch.getText().toString();
             List<String> results = Collections.nCopies(MAX_RESULTS, text);
             showResultsInListView(results);
-
         });
     }
 

@@ -17,7 +17,6 @@ public class SearchResultsAdapter extends BaseAdapter {
 
     List<String> results;
     LayoutInflater layoutInflater;
-    private List<String> searchResults;
 
     public SearchResultsAdapter(Context context, List<String> results) {
 
@@ -51,6 +50,6 @@ public class SearchResultsAdapter extends BaseAdapter {
     }
 
     public void setSearchResults(List<String> searchResults) {
-        this.searchResults = searchResults;
+        results = searchResults;
     }
 }
