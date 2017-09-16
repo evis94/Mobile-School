@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -51,6 +52,10 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
 
             super(itemView);
             tvResult = itemView.findViewById(R.id.tvSearchResult);
+            itemView.setOnClickListener(v ->
+                    Toast.makeText(v.getContext(),
+                            "RecyclerView item clicked pos " + getAdapterPosition(),
+                            Toast.LENGTH_SHORT).show());
         }
 
         public void bind(int position) {

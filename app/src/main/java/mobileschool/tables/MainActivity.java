@@ -1,11 +1,14 @@
 package mobileschool.tables;
 
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import java.util.Collections;
 import java.util.List;
@@ -50,6 +53,12 @@ public class MainActivity extends AppCompatActivity {
             recyclerView.setAdapter(adapter);
             RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
             recyclerView.setLayoutManager(layoutManager);
+            recyclerView.addItemDecoration(
+                    new HorizontalDividerItemDecoration.Builder(this)
+                            .color(ContextCompat.getColor(this, R.color.colorPrimaryDark))
+                            .marginResId(R.dimen.leftDividerMargin, R.dimen.rightDividerMargin)
+                            .sizeResId(R.dimen.divider)
+                            .build());
         } else {
             adapter.setResults(results);
             adapter.notifyDataSetChanged();
